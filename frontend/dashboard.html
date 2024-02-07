@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      table,
+      tr {
+        border: 1px solid rgb(81, 145, 242);
+        border-collapse: collapse;
+      }
+      tr:nth-child(even) {
+        background-color: rgb(132, 188, 228);
+      }
+      td {
+        padding-left: 40px;
+      }
+      th,
+      td {
+        padding: 10px;
+      }
+      table {
+        width: 50%;
+        margin-left: 250px;
+        border-radius: 20px;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body id="realBody" style="font-family: Arial" class="bg-sky-950">
+    <div id="body" class="bg-gray-200 rounded-lg p-3 mx-52 mt-5">
+      <h1 class="text-2xl text-center">Welcome to the admin dashboard</h1>
+      <div id="tableView">
+        <button
+          id="addUser"
+          class="bg-sky-800 text-white text-lg px-2 py-1 rounded-lg hover:bg-sky-900 duration-500 m-5"
+        >
+          Add user
+        </button>
+        <button
+          id="viewUsers"
+          class="bg-sky-800 text-white text-lg px-2 py-1 rounded-lg hover:bg-sky-900 duration-500 m-5"
+        >
+          View users
+        </button>
+        <table>
+          <caption>
+            Table: Users currently registered
+          </caption>
+          <thead>
+            <tr class="bg-sky-500">
+              <th>Username</th>
+              <th>Email</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="add_view_users.js"></script>
+  </body>
+</html>

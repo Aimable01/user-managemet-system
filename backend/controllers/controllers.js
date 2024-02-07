@@ -18,6 +18,15 @@ const adminRegisterPost = async (req, res) => {
   }
 };
 
+const adminGet = async (req, res) => {
+  try {
+    const admins = await Admin.find();
+    res.json(admins);
+  } catch (err) {
+    res.json({ message: err.message });
+  }
+};
+
 const adminLoginGet = (req, res) => {
   res.redirect("/admin/login");
 };
@@ -70,6 +79,17 @@ const usersGet = async (req, res) => {
   }
 };
 
+const userGet = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findById(id);
+    if (!user) res.json({ message: "no user found" });
+    res.json({ message: "returning user", user });
+  } catch (error) {
+    res.json({ error });
+  }
+};
+
 const userUpdate = async (req, res) => {
   try {
     const { id } = req.params;
@@ -106,4 +126,6 @@ module.exports = {
   userDelete,
   userRegister,
   userUpdate,
+  adminGet,
+  userGet,
 };
